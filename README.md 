@@ -1,0 +1,11 @@
+
+    Created Login/Signup Page and the Profile Page
+ 
+    Once the user is logged in, it is redirected to the profile page. If the user is not logged in then it will not be able to view the profile page and will receive the error.
+    
+    When a user signs up, the system sends a welcome email to the registered email address.
+
+   [Demo of my website](https://drive.google.com/file/d/1oGnmFO5VqwJff0gx_uEcO9Dc9QDj_g8X/view?usp=sharing
+)
+  
+

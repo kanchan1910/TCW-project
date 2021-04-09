@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--title of my project-->
+    <title>Profile page</title>
+    <style>
+        *
+        {
+        margin:0;
+        padding:0
+        border-box:border-box;
+        text-decoration:none;
+        }
+        body
+        {
+        height: 100vh;
+         background-image: linear-gradient(to left, blue,magenta,indigo,violet, purple, blue);
+        }
+       .container
+        {
+            height: 750px;
+            width: 1200px;
+            background-color: black;
+            justify-content: center;
+            position: relative;
+            left: 17%;
+            top: 12%;
+            border-radius: 19px;
+            border: 2px solid black;
+            overflow-y: scroll;
+            overflow-x: scroll;
+        }
+        #sidebar
+        {
+            height: 94.89%;
+            width: 27%;
+            float: left;
+        }
+        #sidebar ul
+        {
+            height: 100%;
+        }
+        .sidebarItems
+        {
+            width: 100%;
+            height: 35%;
+            color: white;
+            text-align: center;
+            line-height: 250px;
+            font-size: 35px;
+            font-style: italic;
+            font-weight: bold;
+            list-style: none;
+            cursor: pointer;
+        }
+        .sidebarItems:last-child
+        {
+            border-bottom: none;
+        }
+        .sidebarItems.active
+        {
+            background-color: crimson;
+            color:black;
+            border-left: 8px solid purple;
+            font-weight: bold;
+            font-size: 44px;
+        }
+        #content
+        {
+            height: 100%;
+            width: 70%;
+            float: right;
+            background-color: black;
+        }
+        section
+        {
+            display: none;
+        }
+        section.block
+        {
+            display: block;
+        }
+        #profile-header
+        {
+            height: 256px;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJOlACPm-4Xm23G4ZPZ5YyLxVSpotiyKrDvQvz9wjFalhEU16y_BpdTmS4wB7PuoNr5YA&usqp=CAU');
+            background-size: cover;
+            position: relative;
+        }
+        #profile-img
+        {
+            width: 97px;
+            height: 100px;
+            background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMIYPQpAHWfspO8qrIdSO7Pkx-JpkIU03WVA&usqp=CAU');
+            position: absolute;
+            background-size: cover;
+            top: 190px;
+            border-radius: 70%;
+            left: 17px;
+        }
+        #profile-content
+        {
+            color: white;
+            font-size: 25px;
+            font-style: italic;
+            font-weight: bold;
+            margin-top: 50px;
+            padding: 15px;
+            line-height: 32px;
+        }
+        #lang
+        {
+            width: 100%;
+            height: 110px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            bottom: 10px;
+        }
+        #lang-title
+        {
+            width: 90%;
+            height: 100%
+            text-align:center;
+            color: black;
+            font-size: 25px;
+            display: block;
+            line-height: 100px;
+            justify-content: space-between;
+        }
+        #langmain
+        {
+            width: 100%;
+            height: 160px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            line-height: 30px;
+            bottom: 10px;
+        }
+        #lang-titlemain
+        {
+            width: 100%;
+            height: 300px;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+              line-height: 60px;
+            display: inline-block;
+
+        }
+         #langmain1
+        {
+            width: 100%;
+            height: 244px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            line-height: 30px;
+            bottom: 10px;
+        }
+        #lang-titlemain1
+        {
+            width: 100%;
+            height: 500px;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+              line-height: 60px;
+            display: inline-block;
+
+        }
+        #langmain2
+        {
+            width: 100%;
+            height: 380px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            line-height: 30px;
+            bottom: 10px;
+        }
+        #lang-titlemain2
+        {
+            width: 100%;
+            height: 500px;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+              line-height: 60px;
+            display: inline-block;
+
+        }
+        #langmain3
+        {
+            width: 100%;
+            height: 110px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            line-height: 30px;
+            bottom: 10px;
+        }
+        #lang-titlemain3
+        {
+            width: 100%;
+            height: 500px;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+            line-height: 60px;
+            display: inline-block;
+
+        }
+        #langmain4
+        {
+            width: 100%;
+            height: 200px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            line-height: 30px;
+            bottom: 10px;
+        }
+         #lang-titlemain4
+        {
+            width: 100%;
+            height: 500px;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+            line-height: 60px;
+            display: inline-block;
+        }
+        #lang12
+        {
+            width: 100%;
+            height: 800px;
+            border: 1px solid white;
+            background-color: #EE82EE;
+            color: black;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+            line-height: 30px;
+            bottom: 10px;
+        }
+        #lang-title12
+        {
+            width: 100%;
+            height: 500px;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+            line-height: 60px;
+            display: inline-block;
+
+        }
+        .mid
+        {
+            display: inline-block;
+            top: 25px;
+            left: 14px;
+            position: absolute;
+        }
+
+        .right
+        {
+            position: absolute;
+            right: 34px;
+            top: 22px;
+            display: inline-block;
+        }
+        .navbar
+        {
+            display: inline-block;
+        }
+
+        .navbar li
+        {
+            display: inline-block;
+            font-size: 29px;
+        }
+
+        .navbar li a
+        {
+            color: black;
+            font-weight: bold;
+            /* remove the underline*/
+            text-decoration: none;
+            padding: 34px 23px;
+        }
+        .navbar li a:hover
+        {
+            text-decoration: underline;
+            color: white;
+            font-size: 29px;
+        }
+        .navbtn
+        {
+            font-family: 'Baloo Bhai', cursive;
+            font-weight: bold;
+            margin: 0px 9px;
+            background-color: black;
+            color: white;
+            padding: 4px 14px;
+            border: 2px solid grey;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .navbtn:hover
+        {
+            background-color: white;
+            color:black;
+            font-weight:bold;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+<header class="header">
+    <!--  box for navbar -->
+    <div class="mid">
+        <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!--  box for buttons -->
+    <div class="right">
+        <button class="navbtn">Call Us Now</button>
+        <button class="navbtn">Email Us</button>
+    </div>
+
+</header>
+<!--header section ends here-->
+
+<div class="container">
+<!--    sidebar container-->
+    <div id="sidebar">
+        <ul>
+            <li onclick="showsections(this)" class="onclick sidebarItems">Bio</li>
+            <li onclick="showsections(this)" class="sidebarItems">Education</li>
+            <li onclick="showsections(this)" class="sidebarItems">Programming</li>
+            <li onclick="showsections(this)" class="sidebarItems">Projects</li>
+            <li onclick="showsections(this)" class="sidebarItems">Links</li>
+        </ul>
+    </div>
+    <div id="content">
+<!--        Bio section-->
+        <section>
+            <div id="profile-header">
+            <span id="profile-img">
+
+            </span>
+            </div>
+            <div id="profile-content">
+                Hi, I'am Kanchan Jeswani.<br><br>
+                I am a Computer Science undergraduate student at Jaipur Engineering College And Research Centre. <br>I
+                am a competitive programmer.I have thorough understanding of data structures, algorithms, and internals
+                of Operating System, I am a curious learner passionate about problem-solving and optimization.I have
+                proficient understanding of code versioning (using Git), I have quite good experience working with C++,
+                Python, and SQL. I am an open source contributor at GSSOc'21.<br>I love contributing to open source.I
+                have been part of Codechef Mentorship Program.I have made some projects on deep learning using Pytorch.I
+                have done data analysis projects.I love debugging.I have also worked on data analysis and deep learning
+                projects .I love writing tech blogs on Medium.
+                <br>I’m currently exploring Web development and improving my problem solving skills.
+
+            </div>
+        </section>
+<!--        Education section-->
+        <section class="educ">
+            <div id="lang12">
+
+                <div id="lang-title12">
+                    College: Jaipur Engineering college and Research Centre (JECRC)
+                    <br>Degree: B.Tech
+                    <br>
+                    Branch: Computer Science
+                    <br>
+                    Graduation Year: 2022
+                    <br>
+                    CGPA: 9.4
+                    <br>
+                    Class 12th: Maheshwari Public School (MPS)
+                    <br>
+                    Percentage: 91%
+                    <br>
+                    Completion Year: 2018
+                    <br>
+                    Class 10th: Maheshwari Public School (MPS)
+                    <br>
+                    Percentage: 95%
+                    <br>
+                    Completion Year: 2016
+                </div>
+        </section>
+<!--        Programming section-->
+        <section>
+            <div id="lang">
+                Languages
+                <div id="lang-title">
+                    C++, Python, C, SQL, HTML , CSS, Javascript
+                </div>
+            </div>
+            <div id="lang">
+                Frameworks and Tools
+                <div id="lang-title">
+                    Django, PyTorch, Git, Linux, Node.js, Jupyter Notebook, MYSQL
+                </div>
+            </div>
+            <div id="langmain">
+                Major Skills
+                <div id="lang-titlemain">
+                    <p>
+                        Competitive programming, Proficiency in Data structures and algorithms, Data Analysis, Web
+                        development, Deep Learning, Problem setting.
+                    </p>
+                </div>
+            </div>
+            <div id="langmain">
+                Computer Fundamentals
+                <div id="lang-titlemain">
+                    <p>
+                        Operating system, OOPs, DBMS, Networking, Theory of computation, Compiler design, Analysis of
+                        algorithm, Machine Learning.
+                    </p>
+                </div>
+            </div>
+            <div id="langmain1">
+                Programming platforms stats
+                <div id="lang-titlemain1">
+                    <p>
+                        Leetcode: 5 star problem solving, Codechef: 3 star (Rating 1726) , Codeforces: Specialist
+                        (Rating 1428), Hackerrank: 6 star (Problem solving) , GeeksForGeeks: Rank 2
+                    </p>
+                </div>
+            </div>
+            <div id="langmain2">
+                Certifications
+                <div id="lang-titlemain2">
+                    <p>
+                        Codechef Mentorship Program, Code Innovation series, CodeSquash 1.0, Data analysis (Freecodecamp
+                        and Jovian.ml),
+                        Deep learning with Pytorch (Freecodecamp and Jovian.ml), GSSOC'21, Coding Ninja, Project Code
+                        CodeChef, Google Kickstart Certifications, Hackerrank Certifications.
+
+                        <a href="https://drive.google.com/file/d/13te8sSXoxIOzLzaMRu3qpUAMXGLVK06q/view"
+                           target="_blank"><h1>Click here for Certificates</h1></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+<!--        Projects section-->
+        <section>
+            <div id="langmain1">
+                Web development Projects
+                <div id="lang-titlemain1">
+                    <p>
+                        Letsshop.com (E-commerce website), RealTime Chat Application, Text Analyzer, Random Password
+                        Generator, Analog Clock, Scientific Calculator, Quotes website, Transparent Login Form.
+                    </p>
+                </div>
+            </div>
+            <div id="langmain3">
+                Data Analysis
+                <div id="lang-titlemain3">
+                    <p>
+                        Covid-19 Data Analyis Project
+                    </p>
+                </div>
+            </div>
+            <div id="langmain4">
+                Deep Learning Projects
+                <div id="lang-titlemain4">
+                    <p>
+                        Fruits Classification using FeedForward Neural Network, Fashion MNIST, Handwritten digit
+                        classification.
+                    </p>
+                </div>
+            </div>
+            <div id="langmain">
+                Visit my Projects here
+                <div id="lang-titlemain">
+                    <p>
+                        <a href="https://github.com/kanchan1910" target="_blank">Github link</a>
+                        <br>
+
+                        <a href="https://jovian.ai/kanchanjeswani2000/notebooks" target="_blank">Jovian.ml notebooks
+                            link</a>
+                    </p>
+                </div>
+            </div>
+            <div id="langmain3">
+                Visit my Projects Blog here
+                <div id="lang-titlemain3">
+                    <p>
+                        <a href="https://medium.com/@kanchanjeswani2000" target="_blank">Medium link</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+<!--        Links section-->
+        <section>
+            <div id="langmain3">
+                Email Id:
+                <div id="lang-titlemain3">
+                    kanchanjeswani2000@gmail.com
+                </div>
+            </div>
+            <div id="langmain3">
+                Linkedin:
+                <div id="lang-titlemain3">
+                    <a href="https://www.linkedin.com/in/kanchan-jeswani-888827173/" target="_blank">Visit my linkedin
+                        profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Github:
+                <div id="lang-titlemain3">
+                    <a href="https://github.com/kanchan1910" target="_blank">Visit my Github profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Resume:
+                <div id="lang-titlemain3">
+                    <a href="https://drive.google.com/file/d/1yY4BBo-e5oApp-JCVbk0KIjRFiNJuTse/view?usp=sharing"
+                       target="_blank">Visit my Resume </a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Medium:
+                <div id="lang-titlemain3">
+                    <a href="https://medium.com/@kanchanjeswani2000" target="_blank">Visit my Medium profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Leetcode:
+                <div id="lang-titlemain3">
+                    <a href="https://leetcode.com/Kanchan19102000/" target="_blank">Visit my Leetcode profile</a>
+                </div>
+            </div>
+
+            <div id="langmain3">
+                CodeChef:
+                <div id="lang-titlemain3">
+                    <a href="https://www.codechef.com/users/kanchan1930" target="_blank">Visit my CodeChef profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Codeforces:
+                <div id="lang-titlemain3">
+                    <a href="https://codeforces.com/profile/kanchan_jeswani" target="_blank">Visit my Codeforces
+                        profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                GeeksForGeeks:
+                <div id="lang-titlemain3">
+                    <a href="https://auth.geeksforgeeks.org/user/kanchanjeswani/practice/" target="_blank">Visit my
+                        GeeksForGeeks profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Jovian:
+                <div id="lang-titlemain3">
+                    <a href="https://jovian.ai/kanchanjeswani2000" target="_blank">Visit my Jovain profile</a>
+                </div>
+            </div>
+            <div id="langmain3">
+                Stack Overflow:
+                <div id="lang-titlemain3">
+                    <a href="https://stackoverflow.com/users/12067576/kanchan-jeswani" target="_blank">Visit my Stack
+                        Overflow profile</a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+<script>
+    var $ = document;
+    var sidebarItems = $.getElementsByClassName('sidebarItems');
+    function showsections(elem){
+        for(i = 0; i < sidebarItems.length; i++){
+            sidebarItems[i].classList.remove('active');
+        }
+        elem.classList.add('active');
+
+        var index;
+        for(i = 0; i < elem.parentElement.children.length; i++)
+        {
+            if(elem == elem.parentElement.children[i])
+            {
+                index = i;
+            }
+        }
+       /* console.log(index); */
+       var sections = $.querySelectorAll('section');
+       for(i = 0; i < sections.length; i++)
+       {
+        sections[i].classList.remove('block');
+       }
+       sections[index].classList.add('block');
+    }
+
+    sidebarItems[0].click()
+
+
+</script>
+</body>
+
+</html>

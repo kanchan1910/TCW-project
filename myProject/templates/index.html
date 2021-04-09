@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <!-- CSS part-->
+    <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    html,body{
+      display: grid;
+      height: 100%;
+      width: 100%;
+      place-items: center;
+      background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    }
+    .container{
+      overflow: hidden;
+      background: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+      margin-bottom: 150px;
+    }
+    .container .title-text{
+      display: flex;
+      width: 200%;
+    }
+    .container .title{
+      width: 50%;
+      font-size: 35px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .container .slide-controls{
+      position: relative;
+      display: flex;
+      height: 50px;
+      width: 100%;
+      overflow: hidden;
+      margin: 30px 0 10px 0;
+      justify-content: space-between;
+      border: 1px solid lightgrey;
+      border-radius: 6px;
+    }
+    .slide-controls .slide{
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 10000;
+      text-align: center;
+      line-height: 48px;
+      cursor: pointer;
+      z-index: 1;
+      transition: all 0.9s ease;
+    }
+    .slide-controls .slider-tab{
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      left: 0;
+      z-index: 0;
+      border-radius: 5px;
+      background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+      transition: all 0.6s;
+    }
+    input[type="radio"]{
+      display: none;
+    }
+    #signup:checked ~ .slider-tab{
+      left: 50%;
+    }
+    #signup:checked ~ label.signup{
+      color: #fff;
+      cursor: pointer;
+    }
+    #signup:checked ~ label.login{
+      color: #000;
+    }
+    #login:checked ~ label.signup{
+      color: #000;
+    }
+    #login:checked ~ label.login{
+      cursor: pointer;
+      color: #fff;
+
+    }
+    .container .form-container{
+      width: 100%;
+      overflow: hidden;
+    }
+    .form-container .form-inner{
+      display: flex;
+      width: 200%;
+    }
+    .form-container .form-inner form{
+      width: 50%;
+    }
+    .form-inner form .field{
+      height: 55px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .form-inner form .field input{
+      height: 100%;
+      width: 100%;
+      padding-left: 15px;
+      border-radius: 5px;
+      border: 1px solid lightgrey;
+      border-bottom-width: 2px;
+      font-size: 17px;
+    }
+    .form-inner form .field input::placeholder{
+      color: gray;
+
+    }
+    form .field input:focus::placeholder{
+      color: gray;
+    }
+    .form-inner form .pass-link{
+      margin-top: 10px;
+    }
+    .form-inner form .signup-link{
+      text-align: center;
+      margin-top: 30px;
+    }
+    .form-inner form .pass-link a,
+    .form-inner form .signup-link a{
+      color: #fa4299;
+      text-decoration: none;
+    }
+    .form-inner form .pass-link a:hover,
+    .form-inner form .signup-link a:hover{
+      text-decoration: underline;
+    }
+    form .btn{
+      width: 100%;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    form .btn .btn-layer{
+      height: 100%;
+      width: 300%;
+     position: absolute;
+      background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+    }
+    form .btn input[type="submit"]{
+      height: 100%;
+      width: 100%;
+      position: relative;
+      background: none;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 10000;
+      cursor: pointer;
+    }
+    .mid
+    {
+        display: inline-block;
+        top: 25px;
+        left: 14px;
+        position: absolute;
+    }
+
+    .right
+    {
+        position: absolute;
+        right: 34px;
+        top: 22px;
+        display: inline-block;
+
+    }
+    .navbar
+    {
+        display: inline-block;
+    }
+
+    .navbar li
+    {
+        display: inline-block;
+        font-size: 29px;
+    }
+
+    .navbar li a
+    {
+        color: black;
+        font-weight: bold;
+        /* remove the underline*/
+        text-decoration: none;
+        padding: 34px 23px;
+    }
+    .navbar li a:hover
+    {
+        text-decoration: underline;
+        color: white;
+        font-size: 29px;
+    }
+    .navbtn
+    {
+        font-family: 'Baloo Bhai', cursive;
+        font-weight: bold;
+        margin: 0px 9px;
+        background-color: black;
+        color: white;
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .navbtn:hover
+    {
+        background-color: white;
+        color:black;
+        font-weight:bold;
+        text-decoration: underline;
+    }
+    #notification-message-block
+    {
+         width: 100%;
+         height: 50px;
+         border: 0px solid black;
+         background-color: transparent;
+         color: black;
+         border-radius:24px;
+         font-size: 25px;
+         text-align: center;
+         margin-top: 15px;
+         font-weight: bold;
+         display: block;
+         line-height: 30px;
+         bottom: 10px;
+    }
+    #notification-message
+    {
+        width: 100%;
+        height: 50px;
+        text-align:center;
+        color: cyan;
+        line-height: 60px;
+        display: inline-block;
+        font-size:30px;
+        font-weight:bold;
+    }
+
+    </style>
+<!--    CSS part ends here-->
+</head>
+<!--body starts here-->
+<body>
+
+<!--For displaying error messages-->
+{% if messages %}
+
+<section>
+    <div id="notification-message-block">
+        <div id="notification-message">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endif %}
+
+<header class="header">
+    <!--  box for navbar -->
+    <div class="mid">
+        <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!--  box for buttons -->
+    <div class="right">
+        <button class="navbtn">Call Us Now</button>
+        <button class="navbtn">Email Us</button>
+    </div>
+
+</header>
+<!--header section ends here-->
+
+<!--container starts here-->
+<div class="container">
+<!--    Title part of the container-->
+    <div class="title-text">
+        <div class="title login">Login</div>
+        <div class="title signup">Signup</div>
+    </div>
+    <!--For handling the sliding part of the login and signup form-->
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">Login</label>
+            <label for="signup" class="slide signup">Signup</label>
+            <div class="slider-tab">
+            </div>
+        </div>
+                 <!--form inner container starts here-->
+        <div class="form-inner">
+                <!--login form starts here-->
+            <form action="/login/" class="login">
+                <!--login form fields starts here-->
+                <div class="field">
+                    <input type="text" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="pass-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="">Signup now</a></div>
+            </form>
+                <!--login form ends here-->
+
+                <!--signup form starts here-->
+            <form action="/signup/" method='get' class="signup">
+                <!--signup form fields starts here-->
+                <div class="field">
+                    <input type="text" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="field">
+                    <input type="password" name="confirmPassword" placeholder="Confirm password" required>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" value="Signup">
+                </div>
+            </form>
+            <!--signup form ends here-->
+
+        </div>
+    </div>
+</div>
+
+<!--logic part starts here-->
+<script>
+          const loginText = document.querySelector(".title-text .login");
+          const loginForm = document.querySelector("form.login");
+          const loginBtn = document.querySelector("label.login");
+          const signupBtn = document.querySelector("label.signup");
+          const signupLink = document.querySelector("form .signup-link a");
+          // sliding when signup button is clicked
+          signupBtn.onclick = (()=>{
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
+          });
+
+          //sliding when login button is clicked
+          loginBtn.onclick = (()=>{
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%";
+          });
+
+          /*Retuning false from a JavaScript event usually cancels the "default" behavior - in the case of links, it tells the browser to not follow the link.*/
+        /*  The return false is saying not to take the default action, which in the case of an <a href> is to follow the link. When you return false to the onclick, then the href will be ignored.*/
+          signupLink.onclick = (()=>{
+            signupBtn.click();
+            return false;
+          });
+        </script>
+</body>
+            <!--Body part ends here-->
+</html>
